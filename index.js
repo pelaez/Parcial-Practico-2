@@ -14,11 +14,19 @@ app.engine('handlebars', motorRender({
 }));
 app.set('view engine', 'handlebars');
 
+var contador = {
+  home: 0,
+  nosotros: 0,
+  contacto: 0,
+};
+
 app.get('/', function (req, res) {
   var contexto = {
     titulo: 'Inicio',
   };
   res.render('home', contexto);
+  contador.home++;
+  console.log('Pagina vista:', contador);
   //res.sendFile(__dirname + '/public/index.html');
 });
 
@@ -27,6 +35,7 @@ app.get('/nosotros', function (req, res) {
     titulo: 'nosotros',
   };
   res.render('nosotros', contexto);
+  contador.nosotros++;
 });
 
 app.get('/contacto', function (req, res) {
@@ -34,6 +43,7 @@ app.get('/contacto', function (req, res) {
     titulo: 'contacto',
   };
   res.render('contacto', contexto);
+  contador.contacto++;
 });
 
 app.listen(3000, function () {
