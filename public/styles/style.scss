@@ -1,0 +1,43 @@
+body{
+    margin: 0;
+    display: flex;
+    margin: 2em 20em;
+    height: 100%;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.navegador{
+    padding: 1em;
+    background-color: #0F0F0F;
+    display: flex;
+    justify-content: center;
+
+    &__enlace{
+    margin: 0 1em;
+    text-decoration: none;
+    color: gray;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9em;
+    }
+
+    &__enlace:hover{
+        color: white;
+    }
+    
+}
+
+h1{
+    color: goldenrod;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 800;
+}
+
+p{
+    font-family: 'Roboto', sans-serif;
+    color: grayscale($color: #363636);
+}
