@@ -46,6 +46,15 @@ app.get('/contacto', function (req, res) {
   contador.contacto++;
 });
 
+app.get('/admin', function(req, res){
+  var contexto = {
+    home: contador.home,
+    nosotros: contador.nosotros,
+    contacto: contador.contacto,
+  };
+  res.render('admin', contexto);
+});
+
 app.listen(3000, function () {
   console.log('escuchando el puerto 3000');
 });
