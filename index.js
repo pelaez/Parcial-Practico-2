@@ -9,17 +9,33 @@ const app = express();
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 
-app.engine('handlebars',motorRender());
+app.engine('handlebars', motorRender({
+  defaultLayout: false,
+}));
 app.set('view engine', 'handlebars');
 
-app.get('/', function(req, res){
-    var contexto = {
-      titulo: 'Inicio',
-    };
-    res.render('home', contexto);
-    //res.sendFile(__dirname + '/public/index.html');
-  });
+app.get('/', function (req, res) {
+  var contexto = {
+    titulo: 'Inicio',
+  };
+  res.render('home', contexto);
+  //res.sendFile(__dirname + '/public/index.html');
+});
 
-app.listen(3000, function(){
-    console.log('escuchando el puerto 3000');
-  });
+app.get('/nosotros', function (req, res) {
+  var contexto = {
+    titulo: 'nosotros',
+  };
+  res.render('nosotros', contexto);
+});
+
+app.get('/contacto', function (req, res) {
+  var contexto = {
+    titulo: 'contacto',
+  };
+  res.render('contacto', contexto);
+});
+
+app.listen(3000, function () {
+  console.log('escuchando el puerto 3000');
+});
